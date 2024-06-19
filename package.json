@@ -9,10 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/formidable": "^3.4.5",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "cloudinary": "^2.2.0",
-    "formidable": "^3.5.1",
     "next": "14.2.3",
     "openai": "^4.50.0",
     "react": "^18",
