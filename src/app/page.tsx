@@ -3,7 +3,6 @@ import Loader from "@/components/Loader";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaAngleRight, FaRegCopy, FaRegPaperPlane } from "react-icons/fa";
-import CopyToClipboard from "react-copy-to-clipboard";
 import Link from "next/link";
 
 interface Item {
@@ -92,7 +91,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center">
             <Image src={url} onLoadingComplete={() => setLoading(false)} width={500} height={500} alt="ai image" />
             {!loading &&
-              <div className="">
+              <div>
                 <button type="submit" onClick={saveImage} className="flex justify-center text-white border bg-blue-700 hover:bg-blue-800 font-medium relative rounded-lg text-xs px-2.5 py-2.5 text-center mt-3">
                   {save ? <Loader /> : "Save image"}
                 </button>
