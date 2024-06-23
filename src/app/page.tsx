@@ -14,7 +14,7 @@ export default function Home() {
   const [value, setValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean | undefined>(false);
   const [save, setSave] = useState<boolean | undefined>(false);
-  const [saveStatus, setSaveStatus] = useState(false); // To indicate if the text was copied
+  const [saveStatus, setSaveStatus] = useState(false);
   const [items, setItems] = useState<Item[]>(() => {
     const savedImages = localStorage.getItem("myImages");
     if (savedImages) {
@@ -106,8 +106,7 @@ export default function Home() {
           className="bg-gray-100 placeholder:text-gray-400 disabled:cursor-not-allowed border border-gray-500 text-gray-900 text-sm rounded-lg block p-3.5 mr-2 w-[600px]"
           required
         />
-        <button className="text-blue-700 relative right-[3.5rem] font-medium p-5 rounded-lg text-sm transition-all sm:w-auto px-5 py-2.5 text-center" onClick={handlePrompt}
-          disabled={save}>
+        <button className="text-blue-700 relative right-[3.5rem] font-medium p-5 rounded-lg text-sm transition-all sm:w-auto px-5 py-2.5 text-center" onClick={handlePrompt}>
           <FaRegPaperPlane />
         </button>
       </div>
