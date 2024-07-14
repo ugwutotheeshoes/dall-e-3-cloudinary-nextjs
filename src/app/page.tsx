@@ -55,6 +55,7 @@ export default function Home() {
   const handlePrompt = async (e: any) => {
     e.preventDefault()
     setLoading(true)
+    setUrl("")
     try {
       const response = await fetch('/api/dalle3', {
         method: 'POST',
