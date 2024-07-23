@@ -11,8 +11,8 @@ cloudinary.config({
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const image_url = req.body.url; // Extract the prompt from the request body
-        const timestamp = Date.now();
-        let trimmedString = req.body.value.trim();
+        const timestamp = req.body.value + ' ' + Math.floor((Math.random() * 100) + 1);
+        const trimmedString = timestamp.trim();
         const publicId = trimmedString.replace(/\s+/g, '-');
         console.log(publicId);
         const response = await cloudinary.uploader.upload(image_url, {
