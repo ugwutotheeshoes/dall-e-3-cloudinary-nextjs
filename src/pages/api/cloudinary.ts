@@ -12,9 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         const image_url = req.body.url; // Extract the prompt from the request body
         const timestamp = Date.now();
+        let trimmedString = req.body.value.trim();
+        const publicId = trimmedString.replace(/\s+/g, '-');
+        console.log(publicId);
         const response = await cloudinary.uploader.upload(image_url, {
             resource_type: 'image',
-            public_id: `${timestamp}`,
+            public_id: `${publicId}`,
+            width: 150, height: 150, gravity: "face", radius: "max", crop: "fill",
         });
         const uploadResponse = response.secure_url;
         res.status(200).json({ uploadResponse });

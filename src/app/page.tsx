@@ -34,7 +34,7 @@ export default function Home() {
       const response = await fetch('/api/cloudinary', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url }), // send the string as a JSON object
+        body: JSON.stringify({ url, value }), // send the string as a JSON object
       });
       // Handle success, such as updating UI or showing a success message
       if (response.ok) {
@@ -66,7 +66,7 @@ export default function Home() {
       if (response.ok) {
         const data = await response.json();
         setUrl(data.image_url)
-        setValue("")
+        // setValue("")
       }
     } catch (error) {
       // Handle network errors or other exceptions
