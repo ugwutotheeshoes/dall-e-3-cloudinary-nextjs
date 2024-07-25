@@ -90,7 +90,7 @@ export default function Home() {
         {loading && <Loader size={100} /> }
         {url &&
           <div className="flex flex-col items-center justify-center">
-            <Image src={url} onLoadingComplete={() => setLoading(false)} width={500} height={500} alt="ai image" />
+            <Image src={url} onLoadingComplete={() => setLoading(false)} width={500} height={500} alt="ai image" className="rounded-2xl" />
             {!loading &&
               <div>
                 <button type="submit" onClick={saveImage} className="flex justify-center text-white border bg-blue-700 hover:bg-blue-800 font-medium relative rounded-lg text-xs px-2.5 py-2.5 text-center mt-3">

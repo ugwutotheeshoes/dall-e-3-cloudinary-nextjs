@@ -15,10 +15,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const trimmedString = timestamp.trim();
         const publicId = trimmedString.replace(/\s+/g, '-');
         console.log(publicId);
+        console.log(trimmedString);
         const response = await cloudinary.uploader.upload(image_url, {
+            transformation: [
+                {border: "10px_solid_blue"},
+                {radius: 50},
+                {color: "#FFFFFF69", overlay: {font_family: "Arial", font_size: 100, font_weight: "bold", text_align: "left", text: "CG"}},
+                {flags: "layer_apply", gravity: "north_west", x: 20, y: 40}
+                ],
             resource_type: 'image',
             public_id: `${publicId}`,
-            width: 150, height: 150, gravity: "face", radius: "max", crop: "fill",
         });
         const uploadResponse = response.secure_url;
         res.status(200).json({ uploadResponse });
