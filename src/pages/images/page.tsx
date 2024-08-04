@@ -6,8 +6,10 @@ import "../../app/globals.css"
 import Image from 'next/image';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
+type ImageProp = string;
+
 export default function SavedImages() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<ImageProp[]>([]);
   const [copyStatus, setCopyStatus] = useState(false); // To indicate if the text was copied
 
   useEffect(() => {
@@ -28,8 +30,11 @@ export default function SavedImages() {
     setTimeout(() => setCopyStatus(false), 1000); // Reset status after 2 seconds
   };
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
-      <div className="flex items-center justify-end w-full mb-10">
+    <main className="flex min-h-screen flex-col items-center p-10">
+      <div className="flex items-center justify-between w-full mb-10">
+        <h1 className="relative text-xl font-semibold capitalize">
+        Media Library
+        </h1>
         <Link className="flex items-center justify-center capitalize text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-xs px-3.5 py-2.5" href="/">
           <span>
             homepage
@@ -37,7 +42,6 @@ export default function SavedImages() {
           <FaAngleRight size={14} />
         </Link>
       </div>
-      <h1 className="w-full text-left text-2xl font-bold">Media Library</h1>
       <div className="grid grid-cols-4 gap-8 my-8">
         {images.map((item) => (
           <div key={item}>
